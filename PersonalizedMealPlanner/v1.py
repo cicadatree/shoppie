@@ -1,9 +1,8 @@
 import random
 
 # task: create a python program that creates a personalized meal plan for 1 week based on a user's inputs
-days_in_week = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
-
-all_potential_meals = {
+weekdays = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+meals = {
     "No Restrictions": {
         "Breakfast": ["Whole grain toast with scrambled eggs", "Omelette", "Yogurt with fruits", "Pancakes", "Smoothie bowl", "Breakfast burrito", "French toast", "Granola with milk", "Egg muffins", "Breakfast quesadilla", "Frittata", "Breakfast sandwich", "Waffles", "Cereal with milk", "Egg and cheese wrap"],
         "Lunch": ["Spaghetti Bolognese", "Chicken Caesar salad", "Turkey sandwich", "Grilled chicken with vegetables", "Caesar salad wrap", "BLT sandwich", "Chicken wrap", "Chicken stir-fry", "Chicken fajitas", "Chicken and rice", "Chicken and vegetable skewers", "Chicken and avocado salad", "Chicken and quinoa salad", "Chicken and broccoli stir-fry", "Chicken and mushroom risotto"],
@@ -46,47 +45,47 @@ all_potential_meals = {
 class MealPlanner:
     def check_input(self):
         if self.user_input[1] == "No Restrictions":
-            for day in days_in_week:
-                breakfast = random.choice(all_potential_meals['No Restrictions']['Breakfast'])
-                lunch = random.choice(all_potential_meals['No Restrictions']['Lunch'])
-                dinner = random.choice(all_potential_meals['No Restrictions']['Dinner'])
-                snack = random.choice(all_potential_meals['No Restrictions']['Snack'])
+            for day in weekdays:
+                breakfast = random.choice(meals['No Restrictions']['Breakfast'])
+                lunch = random.choice(meals['No Restrictions']['Lunch'])
+                dinner = random.choice(meals['No Restrictions']['Dinner'])
+                snack = random.choice(meals['No Restrictions']['Snack'])
                 print(f"{day}: \n  Breakfast - {breakfast}, \n  Lunch - {lunch}, \n  Dinner - {dinner}, \n  Snack - {snack}\n")
         elif self.user_input[1] == "Vegetarian":
-            for day in days_in_week:
-                breakfast = random.choice(all_potential_meals['Vegetarian']['Breakfast'])
-                lunch = random.choice(all_potential_meals['Vegetarian']['Lunch'])
-                dinner = random.choice(all_potential_meals['Vegetarian']['Dinner'])
-                snack = random.choice(all_potential_meals['Vegetarian']['Snack'])
+            for day in weekdays:
+                breakfast = random.choice(meals['Vegetarian']['Breakfast'])
+                lunch = random.choice(meals['Vegetarian']['Lunch'])
+                dinner = random.choice(meals['Vegetarian']['Dinner'])
+                snack = random.choice(meals['Vegetarian']['Snack'])
                 print(f"{day}: \n  Breakfast - {breakfast}, \n  Lunch - {lunch}, \n  Dinner - {dinner}, \n  Snack - {snack}\n")
         elif self.user_input[1] == "Vegan":
-            for day in days_in_week:
-                breakfast = random.choice(all_potential_meals['Vegan']['Breakfast'])
-                lunch = random.choice(all_potential_meals['Vegan']['Lunch'])
-                dinner = random.choice(all_potential_meals['Vegan']['Dinner'])
-                snack = random.choice(all_potential_meals['Vegan']['Snack'])
+            for day in weekdays:
+                breakfast = random.choice(meals['Vegan']['Breakfast'])
+                lunch = random.choice(meals['Vegan']['Lunch'])
+                dinner = random.choice(meals['Vegan']['Dinner'])
+                snack = random.choice(meals['Vegan']['Snack'])
                 print(f"{day}: \n  Breakfast - {breakfast}, \n  Lunch - {lunch}, \n  Dinner - {dinner}, \n  Snack - {snack}\n")
         elif self.user_input[1] == "Gluten-Free":
-            for day in days_in_week:
-                breakfast = random.choice(all_potential_meals['Gluten-Free']['Breakfast'])
-                lunch = random.choice(all_potential_meals['Gluten-Free']['Lunch'])
-                dinner = random.choice(all_potential_meals['Gluten-Free']['Dinner'])
-                snack = random.choice(all_potential_meals['Gluten-Free']['Snack'])
+            for day in weekdays:
+                breakfast = random.choice(meals['Gluten-Free']['Breakfast'])
+                lunch = random.choice(meals['Gluten-Free']['Lunch'])
+                dinner = random.choice(meals['Gluten-Free']['Dinner'])
+                snack = random.choice(meals['Gluten-Free']['Snack'])
                 print(f"{day}: \n  Breakfast - {breakfast}, \n  Lunch - {lunch}, \n  Dinner - {dinner}, \n  Snack - {snack}\n")
         elif self.user_input[1] == "Dairy-Free":
-            for day in days_in_week:
-                breakfast = random.choice(all_potential_meals['Dairy-Free']['Breakfast'])
-                lunch = random.choice(all_potential_meals['Dairy-Free']['Lunch'])
-                dinner = random.choice(all_potential_meals['Dairy-Free']['Dinner'])
-                snack = random.choice(all_potential_meals['Dairy-Free']['Snack'])
+            for day in weekdays:
+                breakfast = random.choice(meals['Dairy-Free']['Breakfast'])
+                lunch = random.choice(meals['Dairy-Free']['Lunch'])
+                dinner = random.choice(meals['Dairy-Free']['Dinner'])
+                snack = random.choice(meals['Dairy-Free']['Snack'])
                 print(f"{day}: \n  Breakfast - {breakfast}, \n  Lunch - {lunch}, \n  Dinner - {dinner}, \n  Snack - {snack}\n")
         elif self.user_input[1] == "Keto-Friendly":
             print(f"\nHello {self.user_input[0]}, here is your meal plan for the week: \n")
-            for day in days_in_week:
-                breakfast = random.choice(all_potential_meals['Keto-Friendly']['Breakfast'])
-                lunch = random.choice(all_potential_meals['Keto-Friendly']['Lunch'])
-                dinner = random.choice(all_potential_meals['Keto-Friendly']['Dinner'])
-                snack = random.choice(all_potential_meals['Keto-Friendly']['Snack'])
+            for day in weekdays:
+                breakfast = random.choice(meals['Keto-Friendly']['Breakfast'])
+                lunch = random.choice(meals['Keto-Friendly']['Lunch'])
+                dinner = random.choice(meals['Keto-Friendly']['Dinner'])
+                snack = random.choice(meals['Keto-Friendly']['Snack'])
                 print(f" {day}: \n  Breakfast - {breakfast}, \n  Lunch - {lunch}, \n  Dinner - {dinner}, \n  Snack - {snack}\n")
         else:
             print("You have not provided a valid dietary restriction. Please try again (using one of the following options: No Restrictions, Vegetarian, Vegan, Gluten-Free, Dairy-Free, or Keto-Friendly) ")
@@ -98,7 +97,6 @@ class MealPlanner:
             input("What dietary restrictions do you have? ")
         ]
         self.check_input()
-
 
 newMealPlan = MealPlanner()
 newMealPlan.check_input()
