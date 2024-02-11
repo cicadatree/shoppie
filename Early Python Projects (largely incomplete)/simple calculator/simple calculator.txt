@@ -1,0 +1,23 @@
+'''Simple Calculator App (for practice). It calculates basic arithmatic involving two numbers and an operator.'''
+
+'''this calculator takes 3 inputs:
+
+>> 1. a Number
+>> 2. an Operator
+>> 3. a second Number'''
+
+class Calculator:
+
+    def add(self,firstVal,secondVal):
+        return firstVal + secondVal
+    
+    def subtract(self,firstVal, secondVal):
+        return firstVal - secondVal
+    
+    def divide(self, firstVal, secondVal):
+        return firstVal / secondVal
+    
+    def multiple(self, firstVal, secondVal):
+        return firstVal * secondVal
+
+calc = Calculator()

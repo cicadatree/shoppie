@@ -70,13 +70,6 @@ class GameOfLife:
 
         self.grid = new_grid
 
-    def render(self, window : pygame.Surface):
-        cell_size = window.get_width() // self.size
-        for row in range(self.size):
-            for col in range(self.size):
-                color = get_heat_color(self.heat_map[row, col]) if self.grid[row, col] == 0 else (255, 255, 255)
-                pygame.draw.rect(window, color, (col*cell_size, row*cell_size, cell_size, cell_size))
-
     def count_neighbours(self, row, col):
         # count the number of live nieghbours around a given cell
         total = 0 
@@ -88,6 +81,13 @@ class GameOfLife:
                 if 0 <= new_row < self.size and 0 <= new_col < self.size:
                     total += self.grid[new_row, new_col]
         return total
+
+    def render(self, window : pygame.Surface):
+        cell_size = window.get_width() // self.size
+        for row in range(self.size):
+            for col in range(self.size):
+                color = get_heat_color(self.heat_map[row, col]) if self.grid[row, col] == 0 else (255, 255, 255)
+                pygame.draw.rect(window, color, (col*cell_size, row*cell_size, cell_size, cell_size))
 
     def resize_grid(self, new_size):
         self.size = new_size
@@ -132,6 +132,7 @@ def set_initial_seed(game : GameOfLife, window : pygame.Surface):
 def reset_game(game : GameOfLife, window  : pygame.display):
     # reset the game state and enter seed mode
     game.grid = np.zeros((game.size, game.size), dtype=int) # reset the grid
+    game.heat_map = np.zeros((game.size, game.size), dtype=int)  # Heat map array
     set_initial_seed(game, window) # enters seed mode
 
 def window():
